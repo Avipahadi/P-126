@@ -1,0 +1,52 @@
+.heading {
+    font-size: 23px;
+    width: 100%;
+    margin: 0%;
+}
+
+.note {
+    font-size: 15px;
+    color: black;
+}
+
+body {
+    background-size: cover;
+}
+
+.song {
+    font-size: 23px;
+    margin-top: 40px;
+    animation-name: hehe;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+canvas {
+    border: 5px, solid, white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px grey;
+    margin-top: 100px;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    from {
+        box-shadow: 5px 5px 50px rgba(195, 50, 195, 1);
+    }
+
+    to {
+        box-shadow: 5px 5px 50px rgba(73, 73, 255, 1);
+    }
+}
+
+@keyframes hehe {
+    from {
+        box-shadow: 5px 5px 50px rgb(0, 217, 255);
+    }
+
+    to {
+        box-shadow: 5px 5px 50px rgb(255, 213, 0);
+    }
+}
