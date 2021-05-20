@@ -50,7 +50,7 @@ function draw() {
         } else {
             song_1.play();
             song_2.stop();
-            song_1.setVolume(100000000000000000000000000);
+            song_1.setVolume(60);
             song_2.setVolume(0);
             circle(leftWristY, leftWristX, 20);
             document.getElementById("song_name").innerHTML = 'Song = Main tera boyfriend';
