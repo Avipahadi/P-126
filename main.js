@@ -5,6 +5,7 @@ var leftWristY = 0;
 var rightWristX = 0;
 var rightWristY = 0;
 var scoreleftwrist = 0;
+var scorerightwrist = 0;
 
 
 function preload() {
@@ -22,9 +23,11 @@ function setup() {
     poseNet.on('pose', gotPoses);
 }
 
+
 function gotPoses(results) {
     if (results.length > 0) {
         scoreleftwrist = results[0].pose.keypoints[9].score;
+        scorerightwrist = results[0].pose.keypoints[10].score;
         console.log("Score left wrist = " + scoreleftwrist)
         console.log(results);
         leftWristX = results[0].pose.leftWrist.x;
@@ -36,9 +39,11 @@ function gotPoses(results) {
     }
 }
 
+
 function modelLoaded() {
     console.log("Posenet is initialized!");
 }
+
 
 function draw() {
     image(video, 0, 0, 600, 500);
@@ -52,8 +57,20 @@ function draw() {
             song_2.stop();
             song_1.setVolume(60);
             song_2.setVolume(0);
-            circle(leftWristY, leftWristX, 20);
+            circle(leftWristX, leftWristY, 20);
             document.getElementById("song_name").innerHTML = 'Song = Main tera boyfriend';
+        }
+    }
+    if (scorerightwrist > 0.2) {
+        if (song_2.isPlaying() == true) {
+            console.log("Already Playing")
+        } else {
+            song_2.play();
+            song_1.stop();
+            song_2.setVolume(6000);
+            song_1.setVolume(0);
+            circle(rightWristX, rightWristY, 20);
+            document.getElementById("song_name").innerHTML = 'Song = Teri aankhon Mein';
         }
     }
 }
